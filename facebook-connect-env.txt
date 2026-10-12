@@ -1,0 +1,18 @@
+# ── Booster Ustad: Real Facebook connection ────────────────────────────
+# IS FILE KO "Booster-Ustad-Portable" WALE FOLDER MEIN RAKHEIN
+# aur is ka naam badal kar sirf  .env  kar dein (aakhir mein .txt nahi hona chahiye)
+# Phir kali window band karke START-Booster-Ustad.bat dobara chalayein.
+
+# 1) Neeche APP_ID ki jagah apna Meta App ID likhein (sirf number):
+FB_APP_ID=APP_ID_YAHAN_LIKHEIN
+
+# 2) Neeche SECRET ki jagah apna Meta App Secret likhein:
+FB_APP_SECRET=APP_SECRET_YAHAN_LIKHEIN
+
+# 3) Ye line bilkul aise hi rehne dein — isay mat badlein:
+FB_REDIRECT_URI=http://localhost:3000/api/facebook/callback
+
+# 4) NAYE "Booster Ustad Business" app ke liye zaroori hai:
+#    Meta dashboard mein "Facebook Login for Business" → "Configurations"
+#    → "Create" karein, permissions chunein, aur jo ID mile wo neeche likhein:
+FB_CONFIG_ID=CONFIG_ID_YAHAN_LIKHEIN

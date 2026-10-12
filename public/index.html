@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1565d8">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>Booster Ustad</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231565d8'/><text x='50' y='68' font-size='55' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'>B</text></svg>">
+</head>
+<body>
+
+<!-- ══ LOGIN ══ -->
+<div id="view-login" class="shell hidden">
+  <div class="login-wrap">
+    <div class="brand">
+      <div class="brand-logo">B</div>
+      <h1>Booster Ustad</h1>
+      <p class="muted">Manage your Facebook Pages, media &amp; posts — all in one place.</p>
+    </div>
+
+    <div id="demo-banner-login" class="demo-banner hidden">DEMO MODE — OTP is shown on screen, no SMS is sent.</div>
+
+    <div class="card" id="login-step-phone">
+      <h2>Log in</h2>
+      <p class="muted">Enter your mobile number. We will send a 6-digit code.</p>
+      <label class="field">
+        <span>Mobile number</span>
+        <input id="phone" type="tel" inputmode="tel" placeholder="+92 300 1234567" autocomplete="tel">
+      </label>
+      <button class="btn btn-primary" id="btn-request-otp">Send code</button>
+      <p class="tiny muted">Your number is only used for login. No spam, ever.</p>
+    </div>
+
+    <div class="card hidden" id="login-step-code">
+      <h2>Enter code</h2>
+      <p class="muted">We sent a 6-digit code to <b id="code-phone"></b>.</p>
+      <label class="field">
+        <span>6-digit code</span>
+        <input id="otp" type="text" inputmode="numeric" maxlength="6" placeholder="••••••" autocomplete="one-time-code">
+      </label>
+      <div id="demo-otp-box" class="demo-otp hidden">
+        <b>DEMO MODE — no SMS sent.</b>
+        <div class="demo-otp-code" id="demo-otp-code"></div>
+        <span class="tiny">In production this arrives by SMS via Twilio Verify.</span>
+      </div>
+      <button class="btn btn-primary" id="btn-verify-otp">Verify &amp; log in</button>
+      <button class="btn btn-ghost" id="btn-back-phone">← Change number</button>
+      <button class="btn btn-link" id="btn-resend">Resend code</button>
+    </div>
+
+    <div id="login-error" class="alert alert-error hidden"></div>
+  </div>
+</div>
+
+<!-- ══ APP ══ -->
+<div id="view-app" class="shell hidden">
+  <header class="appbar">
+    <div class="brand-row">
+      <button class="btn btn-ghost btn-sm hidden" id="btn-back">← Back</button>
+      <div class="brand-logo sm">B</div>
+      <div>
+        <div class="app-title">Booster Ustad</div>
+        <div class="tiny muted" id="user-line"></div>
+      </div>
+    </div>
+    <button class="btn btn-ghost btn-sm" id="btn-logout">Logout</button>
+  </header>
+  <div id="demo-banner-app" class="demo-banner hidden"></div>
+
+  <main id="main">
+    <section id="tab-dashboard" class="tab"></section>
+    <section id="tab-pages" class="tab hidden"></section>
+    <section id="tab-gallery" class="tab hidden"></section>
+    <section id="tab-ai" class="tab hidden"></section>
+    <section id="tab-publish" class="tab hidden"></section>
+    <section id="tab-history" class="tab hidden"></section>
+    <section id="tab-feed" class="tab hidden"></section>
+  </main>
+
+  <nav class="bottomnav" id="bottomnav">
+    <button data-tab="dashboard" class="navbtn active"><span class="navico">🏠</span><span>Home</span></button>
+    <button data-tab="pages" class="navbtn"><span class="navico">📘</span><span>Pages</span></button>
+    <button data-tab="gallery" class="navbtn"><span class="navico">🖼️</span><span>Gallery</span></button>
+    <button data-tab="ai" class="navbtn"><span class="navico">✨</span><span>AI</span></button>
+    <button data-tab="publish" class="navbtn"><span class="navico">🚀</span><span>Publish</span></button>
+    <button data-tab="history" class="navbtn"><span class="navico">🕘</span><span>History</span></button>
+    <button data-tab="feed" class="navbtn"><span class="navico">📋</span><span>Feed</span></button>
+  </nav>
+</div>
+
+<div id="modal-root"></div>
+<div id="toast-root"></div>
+<input type="file" id="file-picker" accept="image/*,video/*" multiple hidden>
+
+<script src="app.js"></script>
+</body>
+</html>

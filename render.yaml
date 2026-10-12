@@ -1,0 +1,26 @@
+# Booster Ustad — one-click deploy on Render (free plan)
+# Steps: push this project to GitHub, then on render.com -> New -> Web Service
+# -> connect the repo. Render reads this file automatically.
+services:
+  - type: web
+    name: booster-ustad
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: SESSION_SECRET
+        generateValue: true
+      # Optional — real integrations (leave empty for DEMO mode):
+      # - key: TWILIO_ACCOUNT_SID
+      # - key: TWILIO_AUTH_TOKEN
+      # - key: TWILIO_VERIFY_SID
+      # - key: FB_APP_ID
+      # - key: FB_APP_SECRET
+      # - key: FB_REDIRECT_URI
+      # - key: OPENAI_API_KEY
+# NOTE (free plan): Render's disk is ephemeral, so the SQLite database and
+# uploaded files reset whenever the service restarts/redeploys. Fine for the
+# prototype; use Render's paid disk or an external database for production.
